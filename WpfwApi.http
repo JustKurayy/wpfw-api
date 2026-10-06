@@ -1,0 +1,6 @@
+@WpfwApi_HostAddress = http://localhost:5001
+
+GET {{WpfwApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
