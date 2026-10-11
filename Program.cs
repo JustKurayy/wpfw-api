@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using WpfwApi.Data;
+using WpfwApi.Services.Projects;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<PortfolioDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("PortfolioDatabase")));
+builder.Services.AddScoped<IProjectService, ProjectService>();
 
 var app = builder.Build();
 
