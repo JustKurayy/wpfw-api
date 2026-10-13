@@ -15,7 +15,7 @@ public sealed class ProjectsController(IProjectService projectService) : Control
         return Ok(await projectService.GetAllAsync(cancellationToken));
     }
 
-    [HttpGet("{id:int}", Name = nameof(GetById))]
+    [HttpGet("{id:int}", Name = "GetProjectById")]
     [ProducesResponseType<ProjectResponse>(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<ProjectResponse>> GetById(int id, CancellationToken cancellationToken)
