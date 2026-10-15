@@ -1,6 +1,35 @@
 @WpfwApi_HostAddress = http://localhost:5001
 
-GET {{WpfwApi_HostAddress}}/weatherforecast/
+GET {{WpfwApi_HostAddress}}/api/projects
 Accept: application/json
+
+###
+
+POST {{WpfwApi_HostAddress}}/api/projects
+Content-Type: application/json
+
+{
+  "titel": "Portfolio API",
+  "beschrijving": "Backend voor mijn portfolio",
+  "categorie": "Backend",
+  "gitHubUrl": "https://github.com/JustKurayy/wpfw-api",
+  "datum": "2026-10-26"
+}
+
+###
+
+GET {{WpfwApi_HostAddress}}/api/blogposts
+Accept: application/json
+
+###
+
+POST {{WpfwApi_HostAddress}}/api/blogposts
+Content-Type: application/json
+
+{
+  "titel": "Eerste blogpost",
+  "inhoud": "Dit is de inhoud van mijn eerste blogpost.",
+  "publicatiedatum": "2026-10-26T10:00:00Z"
+}
 
 ###
