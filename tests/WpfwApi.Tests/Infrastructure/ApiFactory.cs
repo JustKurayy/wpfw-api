@@ -7,12 +7,23 @@ using WpfwApi.Data;
 
 namespace WpfwApi.Tests.Infrastructure;
 
-public sealed class ApiFactory(string? connectionString = null) : WebApplicationFactory<Program>
+public sealed class ApiFactory : WebApplicationFactory<Program>
 {
+    private readonly string? _connectionString;
+
+    public ApiFactory()
+    {
+    }
+
+    public ApiFactory(string connectionString)
+    {
+        _connectionString = connectionString;
+    }
+
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
         builder.UseEnvironment("Development");
-        if (connectionString is null)
+        if (_connectionString is null)
         {
             return;
         }
@@ -21,7 +32,7 @@ public sealed class ApiFactory(string? connectionString = null) : WebApplication
         {
             services.RemoveAll<DbContextOptions<PortfolioDbContext>>();
             services.RemoveAll<PortfolioDbContext>();
-            services.AddDbContext<PortfolioDbContext>(options => options.UseSqlServer(connectionString));
+            services.AddDbContext<PortfolioDbContext>(options => options.UseSqlServer(_connectionString));
         });
     }
 
