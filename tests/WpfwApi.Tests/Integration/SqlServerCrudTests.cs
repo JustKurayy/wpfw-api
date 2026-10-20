@@ -18,7 +18,7 @@ public sealed class SqlServerCrudTests
 
         try
         {
-            activeFactory = new ApiFactory(connectionString);
+            activeFactory = ApiFactory.ForSqlServer(connectionString);
             await activeFactory.MigrateDatabaseAsync();
             using var firstClient = activeFactory.CreateClient();
 
@@ -30,7 +30,7 @@ public sealed class SqlServerCrudTests
             await UpdateBlogPostAsync(firstClient, blogPost.Id);
 
             activeFactory.Dispose();
-            activeFactory = new ApiFactory(connectionString);
+            activeFactory = ApiFactory.ForSqlServer(connectionString);
             using var restartedClient = activeFactory.CreateClient();
 
             var persistedProject = await restartedClient.GetFromJsonAsync<ProjectResponse>($"/api/projects/{project.Id}");
