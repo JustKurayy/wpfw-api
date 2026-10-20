@@ -15,10 +15,12 @@ public sealed class ApiFactory : WebApplicationFactory<Program>
     {
     }
 
-    public ApiFactory(string connectionString)
+    private ApiFactory(string connectionString)
     {
         _connectionString = connectionString;
     }
+
+    public static ApiFactory ForSqlServer(string connectionString) => new(connectionString);
 
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
