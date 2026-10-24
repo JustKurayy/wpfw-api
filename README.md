@@ -2,6 +2,8 @@
 
 Deze repository bevat de backend voor een portfoliosite. De API biedt volledige CRUD voor projecten en blogposts en bewaart gegevens via Entity Framework Core in SQL Server.
 
+Repository: [github.com/JustKurayy/wpfw-api](https://github.com/JustKurayy/wpfw-api)
+
 ## Techniek en keuzes
 
 - .NET SDK 10.0.400 met target framework `net10.0`
