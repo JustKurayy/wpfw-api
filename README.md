@@ -89,13 +89,6 @@ Alleen de SQL Server-integratietest uitvoeren:
 dotnet test tests/WpfwApi.Tests/WpfwApi.Tests.csproj --filter Category=SqlServer
 ```
 
-## Documentatie
-
-- [Architectuurdiagram](docs/architectuurdiagram.md)
-- [Onderbouwing](docs/onderbouwing.md)
-- [Bewijschecklist](docs/bewijschecklist.md)
-- [Procesverantwoording template](docs/procesverantwoording-template.md)
-
 ## Bronnen
 
 - [Microsoft Learn controllergebaseerde Web API](https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-10.0)
